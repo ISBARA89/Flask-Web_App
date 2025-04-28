@@ -1,0 +1,36 @@
+<!-- templates/users.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | Fancy Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container animated">
+        <h1>👥 Users List</h1>
+
+        {% if users %}
+            <div class="users-grid">
+                {% for user in users %}
+                    <div class="user-card">
+                        <h3>{{ user.username }}</h3>
+                        <p>Email: {{ user.email }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No users found. Please add some!</p>
+        {% endif %}
+
+        <a href="{{ url_for('home') }}">
+            <button><i class="fas fa-arrow-left"></i> Back to Home</button>
+        </a>
+    </div>
+
+</body>
+</html>

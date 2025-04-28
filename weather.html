@@ -1,0 +1,32 @@
+<!-- templates/weather.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather | Fancy Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container animated">
+        <h1>☁️ Weather Information</h1>
+
+        {% if temperature %}
+            <div class="weather-info">
+                <p><strong>Temperature:</strong> {{ temperature }}°C</p>
+                <p><strong>Description:</strong> {{ description | capitalize }}</p>
+            </div>
+        {% else %}
+            <p>Weather information could not be fetched. Please try again later.</p>
+        {% endif %}
+
+        <a href="{{ url_for('home') }}">
+            <button><i class="fas fa-arrow-left"></i> Back to Home</button>
+        </a>
+    </div>
+
+</body>
+</html>

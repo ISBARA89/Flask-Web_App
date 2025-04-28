@@ -1,0 +1,43 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Fancy Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load icons (Font Awesome CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="animated">🚀 Welcome to My Fancy Flask App</h1>
+        <p class="animated">Your simple, powerful, and stylish application.</p>
+
+        <form action="/greet" method="POST" class="animated">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <button type="submit">
+                <i class="fas fa-handshake"></i> Greet Me
+            </button>
+        </form>
+
+        <div class="button-group animated">
+            <a href="{{ url_for('register') }}">
+                <button><i class="fas fa-user-plus"></i> Register</button>
+            </a>
+            <a href="{{ url_for('login') }}">
+                <button><i class="fas fa-sign-in-alt"></i> Login</button>
+            </a>
+            <a href="{{ url_for('users') }}">
+                <button><i class="fas fa-users"></i> View Users</button>
+            </a>
+            <a href="{{ url_for('weather') }}">
+                <button><i class="fas fa-cloud-sun"></i> Check Weather</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
